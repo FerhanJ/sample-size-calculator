@@ -8,10 +8,10 @@ import numpy as np
 st.title('Sample Size Calculator (Binary Vars)')
 p0 = st.number_input('Baseline Rate (p0)', min_value=0.0, max_value=1.0, format='%.3f')
 st.markdown(f'The rate in the control group is **{p0:.2%}**')
-mde = st.number_input('Minimum Detectable Effect', min_value=0.001, max_value=1.0, step=0.001, format='%.3f', value=0.01)
+mde = st.number_input('Minimum Detectable Effect', min_value=0.001, max_value=1. step=0.001, format='%.3f', value=0.01)
 st.markdown(f'The minimum detectable effect is **{mde:.2%}**')
 control_to_test_ratio = st.number_input('Sample Size Ratio', min_value=0.0, value=1.0, step=0.1)
-st.markdown(f'The control group is **{control_to_test_ratio:.2f}** times larger than the control group')
+st.markdown(f'The control group is **{control_to_test_ratio:.2f}** times larger than the test group')
 
 # sidebar elements 
 with st.sidebar:
@@ -25,7 +25,7 @@ with st.sidebar:
 # calculate extra vars from inputs
 p1 = p0 + diff_under_null
 power = 1 - beta
-pooled_var = (bernoulli.var(p0) + bernoulli.var(p1)) / 2
+pooled_var = (bernoulli.var(p0) + bernoulli.var(p1)) 
 
 # sample size calculation 
 test_sample_size = pwr.zt_ind_solve_power(
