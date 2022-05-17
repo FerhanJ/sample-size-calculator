@@ -25,7 +25,7 @@ with st.sidebar:
 # calculate extra vars from inputs
 p1 = p0 + diff_under_null
 power = 1 - beta
-pooled_var = (bernoulli.var(p0) + bernoulli.var(p1)) 
+pooled_var = (bernoulli.var(p0) + bernoulli.var(p1)) / 2
 
 # sample size calculation 
 test_sample_size = pwr.zt_ind_solve_power(
