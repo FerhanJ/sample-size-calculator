@@ -16,7 +16,10 @@ st.markdown(f'The control group is **{control_to_test_ratio:.2f}** times larger 
 # sidebar elements 
 with st.sidebar:
     st.title('Advanced Inputs')
-    diff_under_null =  st.number_input('Difference Under Null (H_0)', format='%.3f', max_value=1-p0)
+    diff_under_null =  st.number_input(
+        'Difference Under Null (H_0)', format='%.3f', 
+        max_value=1-p0, 
+        help="Sample sizes are inaccurate when difference under null isn't 0 and sample size ratio is more than 1")
     st.markdown(f'{diff_under_null:.2%}')
     alternative = st.radio('Alternative', ('two-sided', 'smaller', 'larger'))
     alpha = st.slider('Type 1 Error', min_value=0.0, max_value=1.0,  value=0.05)
